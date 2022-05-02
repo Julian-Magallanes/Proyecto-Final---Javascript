@@ -1,5 +1,5 @@
 alert( "Hola bienvenido a la calculadora de la construccion!")
-
+//declaro variables globales.
 id = 0
 let nombre = ""
 let materiales= ""
@@ -12,6 +12,8 @@ const rendPiedraBola= 0.30
 const rendElementoCeramico=9 
 
 SistemaConstructivo();
+
+//Funcion constructora.
 
 function desciption(sistema){
 class arregloSistema {
@@ -32,10 +34,13 @@ const sistema7 = new arregloSistema (7,"Panel EPS","Cemento, arena, polietireno 
 
 let sistemas = [sistema1,sistema2,sistema3,sistema4,sistema5,sistema6,sistema7]
 
+//Uso de .filter para mostrar por consola el array seleccionado.
+
 const tipo1 = sistemas.filter((tipos) => tipos.id==sistema)
 console.table(tipo1)
 }
 
+//funcion con condicionales
 function SistemaConstructivo(){
     let sistema= parseInt(prompt(' Ingrese opcion de Sistema constructivo a usar \n1- Cimientos \n2- Mamposteria \n3- Entrepiso \n4- Estructura de Hormigon Armado \n5- Revestimientos \n6-Stell Framing \n7-Panel EPS'));
     if (sistema === 1) {
@@ -127,6 +132,8 @@ function vigueta (largo){
 function elementoCeramico (largo, ancho, rendElementoCeramico){
     return  largo * ancho * rendElementoCeramico
 }
+
+//funciones en construccion.
 
 function estructuraHormigonArmado (){ 
     console.log("sistema en construccion.")
