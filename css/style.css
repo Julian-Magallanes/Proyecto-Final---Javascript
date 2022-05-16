@@ -527,6 +527,16 @@ main h3 {
     .resume{
         width: 600px;;
     }
+    .resume__text{
+        font-size: 20px;
+    }
+    .resume h2 {
+        font-size: 24px;
+    }
+    .btn__submit2{
+        font-size: 16px;
+        width: 120px;
+    }
 }
 /* tamaño de tablet horizontal*/
 @media (max-width: 768px){
@@ -557,10 +567,31 @@ main h3 {
         width: 400px;;
     }
     .resume{
-        width: 400px;;
+        width: 400px;
+        flex-direction: column;
     }
     .main__dimensionsItem input {
         width: 180px;
+    }
+    .resume__resultado{
+        width: 100%;
+    }
+    .resume__historial{
+        border-left: none;
+        border-top: #0A1612 solid;
+        width: 100%;
+    }
+    .btn__submit2{
+        width: 200px;
+    }
+    .resume__text2{
+        font-size: 14px;
+    }
+    .resume__text3{
+        font-size: 14px;
+    }
+    .resume__text3 p{
+        padding: 44px;
     }
 }
 @media (max-width: 460px){

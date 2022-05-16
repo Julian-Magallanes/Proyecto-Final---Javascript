@@ -84,7 +84,7 @@ formulario.addEventListener('submit',(event) => {
 
 //Creo las funciones dentro del formulario => donde se elige el sistema y a partir de ese dato con las dimensiones calcula la cant de materiales necesarios.
 
-function sistemaElegido (){
+const sistemaElegido = () => {
     if(document.getElementById('btn-bases').checked){
         console.log("usted eligio bases asiladas")
         bases()
@@ -95,7 +95,7 @@ function sistemaElegido (){
     }
 }
 
-function bases (){
+const bases = () =>{
 
     let alto = document.getElementById('alto').value;
     let ancho = document.getElementById('ancho').value;
@@ -115,7 +115,7 @@ function bases (){
 
 }
 
-function ciclopeo (){
+const ciclopeo =() =>{
     let alto = document.getElementById('alto').value;
     let ancho = document.getElementById('ancho').value;
     let largo = document.getElementById('largo').value;
@@ -133,25 +133,16 @@ function ciclopeo (){
 }
 
 
-function hormigon(alto, largo, ancho, rendHormigon){
-    return  alto * largo * ancho * rendHormigon
-}
+const hormigon = (alto, largo, ancho, rendHormigon) => alto * largo * ancho * rendHormigon;
 
-function piedrabola (alto, largo, ancho, rendPiedraBola){
-    return  alto * largo * ancho * rendPiedraBola
-}
+const piedrabola = (alto, largo, ancho, rendPiedraBola) => alto * largo * ancho * rendPiedraBola;
 
-function cemento(alto, largo, ancho, rendCemento){
-    return  alto * largo * ancho * rendCemento
-}
+const cemento = (alto, largo, ancho, rendCemento) => alto * largo * ancho * rendCemento;
 
-function arena (alto, largo, ancho, rendArena){
-    return  alto * largo * ancho * rendArena
-}
+const arena = (alto, largo, ancho, rendArena) => alto * largo * ancho * rendArena;
 
-function ripio (alto, largo, ancho, rendRipio){
-    return  alto * largo * ancho * rendRipio
-}
+const ripio = (alto, largo, ancho, rendRipio) => alto * largo * ancho * rendRipio;
+
 
 
 //Creo el evento a partir del boton de historial => donde lee el localStorage y lo inserta al html
