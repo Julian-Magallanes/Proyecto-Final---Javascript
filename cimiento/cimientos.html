@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Exo:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="../imagenes/logo/icon1.png">
+    <title>Calculadora de construccion</title>
+</head>
+<body>
+    <header>
+        <div class="header__rrss">
+            <div class="header__rrssDescription">
+                <h4>Seguinos en Nuestras Redes</h4>
+            </div>
+            <div class="header__rrssImages">
+                <a href="https://instagram.com" target="_blank" rel="nopener noreferrer"><img src="../imagenes/iconos_rrss/instagram.png"  alt="instagram"></a>
+                <a href="https://youtube.com" target="_blank" rel="nopener noreferrer"><img src="../imagenes/iconos_rrss/youtube.png" alt="youtube"></a>
+            </div>
+        </div>
+        <div class="header__menu">
+            <div class="header__menuLogo">
+                <a href="../index.html"><img src="../imagenes/logo/RENDIT-03.png" alt="logo"></a>
+            </div>
+            <ul class="header__menuItems">
+                <li>
+                    <a href="">RENDIMIENTOS</a>
+                    <span><img src="../imagenes/iconos/flecha.png" alt=""></span>
+                </li>
+                <li><a href="">BLOG</a></li>
+                <li><a href="">CONTACTO</a></li>
+            </ul>
+            <div class="header__menuRegistration">
+                <div class="header__menuRegistrationButton1">
+                    <h2>INGRESAR</h2>
+                </div>
+                <div class="header__menuRegistrationButton2">
+                    <h2>REGISTRATE</h2>
+                </div>
+            </div>
+            <div class="header__menuHamburguesa">
+                <span class="header__menuHamburguesa-line1"></span>
+                <span class="header__menuHamburguesa-line2"></span>
+                <span class="header__menuHamburguesa-line3"></span>
+            </div>
+        </div>
+        <div class="header__menuItemsFlecha">
+            <a href="../cimiento/cimientos.html">CIMIENTOS</a>
+            <a href="../mamposteria/mamposteria.html">MAMPOSTERIA</a>
+            <a href="">ENTREPISOS</a>
+            <a href="">ESTRUCTURA HORMIGON ARMADO</a>
+            <a href="">REVESTIMIENTOS</a>
+            <a href="">STELL FRAMING</a>
+            <a href="">PANEL EPS</a>
+        </div>
+    </header>
+    <main>
+        <h1>CIMIENTOS</h1>
+        <h3>ELIJE EL SISTEMA CONSTRUCTIVO A UTILIZAR</h3>
+        <form id="idForm" action="">
+        <div class="main__items">
+            <div class="main__itemsSistems">
+                <img src="../imagenes/elementos_constructivos/cimientos/cimientos.png" alt="">
+                <div class="main__itemsSistemsInput">
+                    <input id="btn-bases" type="radio" name="sistema" value="Bases">
+                    <h2>BASES AISLADAS</h2>
+                </div>
+            </div>
+            <div class="main__itemsSistems">
+                <img src="../imagenes/elementos_constructivos/cimientos/Ciclopeo.png" alt="">
+                <div class="main__itemsSistemsInput">
+                    <input id="btn-ciclopeo" type="radio" name="sistema" value="cimientoCiclopeo">
+                    <h2>CIMIENTOS CICLOPEO</h2>
+                </div>
+            </div>
+        </div>
+        <h3>DIMENSIONES</h3>
+        <div class="main__dimensions">
+            <div class="main__dimensionsItem">
+                <label for="dimensions">ALTO</label>
+                <input id="alto" type="text" name="alto">
+                <h4>METROS</h4>
+            </div>
+            <div class="main__dimensionsItem">
+                <label for="dimensions">ANCHO</label>
+                <input id="ancho" type="text" name="ancho">
+                <h4>METROS</h4>
+            </div>
+            <div class="main__dimensionsItem">
+                <label for="dimensions">LARGO</label>
+                <input id="largo" type="text" name="largo">
+                <h4>METROS</h4>
+            </div>
+        </div>
+        <!--<h3>TIPO DE HORMIGON</h3>
+        <div class="main__items">
+            <div class="main__itemsHormigon">
+                <img src="../imagenes/elementos_constructivos/cimientos/hormigonera.png" alt="">
+                <div class="main__itemsSistemsInput">
+                    <input id="btn-deObra" type="radio" name="tipoHormigon" value="deObra">
+                    <h2>DE OBRA</h2>
+                </div>
+            </div>
+            <div class="main__itemsHormigon">
+                <img src="../imagenes/elementos_constructivos/cimientos/mixer.png" alt="">
+                <div class="main__itemsSistemsInput">
+                    <input id="btn-elaborado"type="radio" name="tipoHormigon" value="elaborado">
+                    <h2>ELABORADO</h2>
+                </div>
+            </div>
+        </div>-->
+        <div class="main__container">
+            <div class="btn">
+                <input id="btn-calcular" class="btn__submit" type="submit" value="CALCULAR">
+            </div>
+        </div>
+        </form>
+        <div class="main__container">
+            <div class="resume">
+                <div class="resume__resultado">
+                    <h2>RESUMEN</h2>
+                    <div class="resume__text">
+                    </div>
+                </div>
+                <div class="resume__historial">
+                    <div class="btn">
+                        <input id="btn-calcular2" class="btn__submit2" type="submit" value="HISTORIAL">
+                    </div>
+                    <div class="resume__text2">
+                    </div>
+                    <div class="resume__text3">
+                    </div>
+                    <div class="btn">
+                        <input id="btn-calcular3" class="btn__submit2" type="submit" value="BORRAR">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    <main>
+    <footer>
+            <div class="footer__information">
+                <h4>MENDOZA</h4>
+                <h4>Calle Huarpes 101, Ciudad</h4>
+                <h5>Diseño web - Julian Magallanes</h5>
+            </div>
+            <div class="footer__logo">
+                <a href="../index.html"><img src="../imagenes/logo/RENDIT-03.png" alt=""></a>
+            </div>
+            <div class="footer__contact">
+                <h4>Quieres trabajar con nosotros?</h4>
+                <h4>Contactate con uno de nuestros consultores</h4>
+                <h5>Rendit@gmail.com</h5>                
+            </div>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script> 
+</body>
+</html>

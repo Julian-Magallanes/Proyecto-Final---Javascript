@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./imagenes/logo/icon1.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Exo:wght@300&display=swap" rel="stylesheet">
-    <script src="./js/script.js"></script>
     <title>Calculadora de construccion</title>
 </head>
 <body>
@@ -19,8 +18,8 @@
                 <h4>Seguinos en Nuestras Redes</h4>
             </div>
             <div class="header__rrssImages">
-                <a href="instagram.com"><img src="./imagenes/iconos_rrss/instagram.png" alt=""></a>
-                <a href="youtube.com"><img src="./imagenes/iconos_rrss/youtube.png" alt=""></a>
+                <a href="https://instagram.com" target="_blank" rel="nopener noreferrer"><img src="../imagenes/iconos_rrss/instagram.png"  alt="instagram"></a>
+                <a href="https://youtube.com" target="_blank" rel="nopener noreferrer"><img src="../imagenes/iconos_rrss/youtube.png" alt="youtube"></a>
             </div>
         </div>
         <div class="header__menu">
@@ -43,6 +42,20 @@
                     <h2>REGISTRATE</h2>
                 </div>
             </div>
+            <div class="header__menuHamburguesa">
+                <span class="header__menuHamburguesa-line1"></span>
+                <span class="header__menuHamburguesa-line2"></span>
+                <span class="header__menuHamburguesa-line3"></span>
+            </div>
+        </div>
+        <div class="header__menuItemsFlecha">
+            <a href="../cimiento/cimientos.html">CIMIENTOS</a>
+            <a href="../mamposteria/mamposteria.html">MAMPOSTERIA</a>
+            <a href="">ENTREPISOS</a>
+            <a href="">ESTRUCTURA HORMIGON ARMADO</a>
+            <a href="">REVESTIMIENTOS</a>
+            <a href="">STELL FRAMING</a>
+            <a href="">PANEL EPS</a>
         </div>
     </header>
     <main>
@@ -50,9 +63,9 @@
         <div class="main__items">
             <div class="main__itemsSistems">
                 <img src="./imagenes/elementos_constructivos/cimientos/cimientos.png" alt="">
-                <div class="main__itemsSistemsButton">
+                <a class="main__itemsSistemsButton" href="./cimiento/cimientos.html">
                     <h2>CIMIENTOS</h2>
-                </div>
+                </a>
             </div>
             <div class="main__itemsSistems">
                 <img src="./imagenes/elementos_constructivos/mamposteria/mamposteria.png" alt="">
@@ -90,23 +103,23 @@
                     <h2>PANEL EPS</h2>
                 </div>
             </div> 
-
         </div>
     </main>
     <footer>
-            <div class="footer__information">
-                <h4>MENDOZA</h4>
-                <h4>Calle Huarpes 101, Ciudad</h4>
-                <h5>Diseño web - Julian Magallanes</h5>
-            </div>
-            <div class="footer__logo">
-                <a href="./index.html"><img src="./imagenes/logo/RENDIT-03.png" alt=""></a>
-            </div>
-            <div class="footer__contact">
-                <h4>Quieres trabajar con nosotros?</h4>
-                <h4>Contactate con uno de nuestros consultores</h4>
-                <h5>Rendit@gmail.com</h5>                
-            </div>
+        <div class="footer__information">
+            <h4>MENDOZA</h4>
+            <h4>Calle Huarpes 101, Ciudad</h4>
+            <h5>Diseño web - Julian Magallanes</h5>
         </div>
+        <div class="footer__logo">
+            <a href="./index.html"><img src="./imagenes/logo/RENDIT-03.png" alt=""></a>
+        </div>
+        <div class="footer__contact">
+            <h4>Quieres trabajar con nosotros?</h4>
+            <h4>Contactate con uno de nuestros consultores</h4>
+            <h5>Rendit@gmail.com</h5>                
+        </div>
+    </footer>
+    <script src="./js/script.js"></script> 
 </body>
 </html>

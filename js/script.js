@@ -1,83 +1,137 @@
-alert( "Hola bienvenido a la calculadora de la construccion!")
-//declaro variables globales.
-id = 0
-let nombre = ""
-let materiales= ""
-let repetir=true
-const rendMuro= 40
-const rendCemento= 0.24
-const rendArena= 0.07
+//eventos de menu hamburguesa
+document.querySelector(".header__menuHamburguesa").addEventListener("click", animacionMenu)
+let line1 = document.querySelector(".header__menuHamburguesa-line1");
+let line2 = document.querySelector(".header__menuHamburguesa-line2");
+let line3 = document.querySelector(".header__menuHamburguesa-line3");
+let menuItems = document.querySelector(".header__menuItems");
+let menuRegistration = document.querySelector(".header__menuRegistration");
+let menu = document.querySelector(".header__menu");
+
+function animacionMenu (){
+    line1.classList.toggle("activeheader__menuHamburguesa-line1");
+    line2.classList.toggle("activeheader__menuHamburguesa-line2");
+    line3.classList.toggle("activeheader__menuHamburguesa-line3");
+
+    menuItems.classList.toggle("activeheader__menuItems");
+    menuRegistration.classList.toggle("activeheader__menuRegistration");
+    menu.classList.toggle("activeheader__menu");
+}
+
+//eventos de despliege de rendimientos
+document.querySelector(".header__menuItems span").addEventListener("click", rendimientos)
+let flecha = document.querySelector(".header__menuItemsFlecha");
+function rendimientos (){
+    flecha.classList.toggle("activeheader__menuItemsFlecha");
+}
+
+//defino las variables
+const rendCemento= 3
+const rendArena= 0.9
+const rendRipio= 0.9
 const rendHormigon= 1
 const rendPiedraBola= 0.30
-const rendElementoCeramico=9 
+const resume__text = document.querySelector(".resume__text");
+const resume__text2 = document.querySelector(".resume__text2");
+const resume__text3 = document.querySelector(".resume__text3");
 
-SistemaConstructivo();
+//defino funciones constructoras
 
-//Funcion constructora.
+class MaterialesBases {
+    constructor(cemento, arena, ripio){
+        this.cemento = cemento;
+        this.arena = arena;
+        this.ripio = ripio;
+    }
+}
+class MaterialesCimiento {
+    constructor(hormigon, piedraBola){
+        this.hormigon = hormigon;
+        this.piedraBola = piedraBola;
+    }
+}
+//defino arrays vacios
 
-function desciption(sistema){
-class arregloSistema {
-    constructor (id, nombre, materiales){
-        this.id = id
-        this.nombre = nombre
-        this.materiales = materiales
+let materialesB= []
+let materialesC= []
+
+//condicionales para consultar el localStore
+
+if(localStorage.getItem('MaterialesB')){
+    materiales = JSON.parse(localStorage.getItem('MaterialesB'))
+}else {
+    localStorage.setItem('MaterialesB', JSON.stringify(materialesB))
+}
+
+
+if(localStorage.getItem('MaterialesC')){
+    materialesC = JSON.parse(localStorage.getItem('MaterialesC'))
+}else {
+    localStorage.setItem('MaterialesC', JSON.stringify(materialesC))
+}
+
+//defino la variable en el id del formulario html
+
+let formulario = document.getElementById("idForm")
+
+//Creo el evento de escucha para el formulario
+
+formulario.addEventListener('submit',(event) => {
+    event.preventDefault()
+
+    sistemaElegido()
+    formulario.reset()
+})
+
+//Creo las funciones dentro del formulario => donde se elige el sistema y a partir de ese dato con las dimensiones calcula la cant de materiales necesarios.
+
+function sistemaElegido (){
+    if(document.getElementById('btn-bases').checked){
+        console.log("usted eligio bases asiladas")
+        bases()
+    }
+    else if(document.getElementById('btn-ciclopeo').checked){
+        console.log("usted eligio cimiento ciclopeo")
+        ciclopeo()
     }
 }
 
-const sistema1 = new arregloSistema (1,"Cimientos","Hormigon y piedra bola")
-const sistema2 = new arregloSistema (2,"Mamposteria","Ladrillos, arena y cemento")
-const sistema3 = new arregloSistema (3,"Entrepisos","Hormigon, Vigueta y elemento ceramico")
-const sistema4 = new arregloSistema (4,"Estructura de hormigon armado","Hormigon y hierro")
-const sistema5 = new arregloSistema (5,"Revestimientos","Cemento, arena y cal")
-const sistema6 = new arregloSistema (6,"Stell framing","Panel de yeso, solera, montante, tornillos y masilla")
-const sistema7 = new arregloSistema (7,"Panel EPS","Cemento, arena, polietireno expandido y malla de hierro")
+function bases (){
 
-let sistemas = [sistema1,sistema2,sistema3,sistema4,sistema5,sistema6,sistema7]
+    let alto = document.getElementById('alto').value;
+    let ancho = document.getElementById('ancho').value;
+    let largo = document.getElementById('largo').value;
 
-//Uso de .filter para mostrar por consola el array seleccionado.
+    let resultado1 = cemento(alto, largo, ancho, rendCemento)
+    let resultado2 = arena(alto, largo, ancho, rendArena)
+    let resultado3 = ripio (alto, largo, ancho, rendRipio)
+    
+    resume__text.innerHTML = `<h2>Bases Aisladas:</h2> <br> <p>Usted necesitara: <br>${ resultado1 } bolsas de cemento <br>${ resultado2 } m3 de arena <br>${ resultado3 } m3 de ripio</p>`
 
-const tipo1 = sistemas.filter((tipos) => tipos.id==sistema)
-console.table(tipo1)
+    //Creo un array y lo guardo en el localStorage
+    const valor = new MaterialesBases(resultado1,resultado2,resultado3)
+    materialesB.push(valor)
+    console.log(materialesB)
+    localStorage.setItem('MaterialesB', JSON.stringify(materialesB))
+
 }
 
-//funcion con condicionales
-function SistemaConstructivo(){
-    let sistema= parseInt(prompt(' Ingrese opcion de Sistema constructivo a usar \n1- Cimientos \n2- Mamposteria \n3- Entrepiso \n4- Estructura de Hormigon Armado \n5- Revestimientos \n6-Stell Framing \n7-Panel EPS'));
-    if (sistema === 1) {
-        desciption(sistema);
-        cimiento ();
-    } else if (sistema === 2){
-        desciption(sistema);
-        muro();
-    } else if (sistema === 3){
-        desciption(sistema);
-        entrepiso();
-    } else if (sistema === 4){
-        desciption(sistema);
-        estructuraHormigonArmado();
-    } else if (sistema === 5){
-        desciption(sistema);
-        revestimientos();
-    } else if (sistema === 6){
-        desciption(sistema);
-        stellFraming();
-    } else if (sistema === 7){
-        desciption(sistema);
-        PanelEPS();        
-    } else {
-        alert('opcion ingresada incorrecta, recargue la pagina');
-    }       
-}
-function cimiento (){
-    let alto = parseInt (prompt("Insertar alto del cimiento (se considera en metros)"))
-    let largo = parseInt(prompt("Insertar largo del cimiento (se considera en metros)"))
-    let ancho = parseInt(prompt("Insertar ancho del cimiento (se considera en metros)"))
+function ciclopeo (){
+    let alto = document.getElementById('alto').value;
+    let ancho = document.getElementById('ancho').value;
+    let largo = document.getElementById('largo').value;
 
-    let resultado1 = hormigon(alto,largo,ancho, rendHormigon)
-    let resultado2 = piedrabola(alto,largo,ancho, rendPiedraBola)
+    let resultado3 = hormigon(alto,largo,ancho, rendHormigon)
+    let resultado4 = piedrabola(alto,largo,ancho, rendPiedraBola)
 
-    console.log ("Usted necesitara: " +"\n1) "+resultado1 + " m3 de hormigon elaborado" +"\n2) "+resultado2+" m3 de piedra bola")
+    resume__text.innerHTML = `<h2>Cimiento Ciclopeo:</h2> <br> <p>Usted necesitara: <br>${ resultado3 } m3 de hormigon elaborado <br>${ resultado4 } m3 de piedra bola </p>`
+
+    //Creo un array y lo guardo en el localStorage
+    const valor = new MaterialesCimiento(resultado3,resultado4)
+    materialesC.push(valor)
+    console.log(materialesC)
+    localStorage.setItem('MaterialesC', JSON.stringify(materialesC))
 }
+
 
 function hormigon(alto, largo, ancho, rendHormigon){
     return  alto * largo * ancho * rendHormigon
@@ -87,63 +141,56 @@ function piedrabola (alto, largo, ancho, rendPiedraBola){
     return  alto * largo * ancho * rendPiedraBola
 }
 
-function muro (){
-    let alto = parseInt (prompt("Insertar alto de la pared (se considera en metros)"))
-    let largo = parseInt(prompt("Insertar largo de la pared (se considera en metros)"))
-
-    let resultado1 = ladrillos(alto,largo,rendMuro)
-    let resultado2 = cemento(alto,largo,rendCemento)
-    let resultado3 = arena(alto,largo,rendArena)
-
-    console.log ("Usted necesitara: " +"\n1) "+resultado1 + " ladrillos" +"\n2) "+resultado2+" Bolsas de cemento"+"\n3) "+resultado3+" m3 de arena")
+function cemento(alto, largo, ancho, rendCemento){
+    return  alto * largo * ancho * rendCemento
 }
 
-function ladrillos(alto, largo, rendMuro){
-    return  alto * largo * rendMuro
+function arena (alto, largo, ancho, rendArena){
+    return  alto * largo * ancho * rendArena
 }
 
-function cemento (alto, largo, rendCemento){
-    return  alto * largo * rendCemento
-}
-
-function arena (alto, largo, rendArena){
-    return  alto * largo * rendArena
+function ripio (alto, largo, ancho, rendRipio){
+    return  alto * largo * ancho * rendRipio
 }
 
 
-function entrepiso (){    
-    let largo = parseInt(prompt("Insertar largo del entrepiso (se considera en metros)"))
-    let ancho = parseInt(prompt("Insertar ancho del entrepiso (se considera en metros)"))
+//Creo el evento a partir del boton de historial => donde lee el localStorage y lo inserta al html
 
-    let resultado1 = hormigon(largo, ancho, rendHormigon)
-    let resultado2 = vigueta(largo)
-    let resultado3 = elementoCeramico(largo, ancho, rendElementoCeramico)
+document.getElementById("btn-calcular2").addEventListener("click", resumenTotal)
 
-    console.log ("Usted necesitara: " +"\n1) "+resultado1 + " m3 de hormigon elaborado" +"\n2) "+resultado2+" viguetas" +"\n3) "+resultado3+" elementos ceramicos")
-}
-function hormigon(largo, ancho, rendHormigon){
-    return   largo * ancho * rendHormigon
+let botonResumen = document.getElementById("btn-calcular2")
+
+function resumenTotal () {
+    let historial=JSON.parse( localStorage.getItem("MaterialesB"))
+
+    historial.forEach(materiales => {
+        resume__text2.innerHTML += `
+        <p>BASE AISLADA
+        <br>${materiales.cemento} bolas de cemento
+        <br>${materiales.arena} m3 de arena
+        <br>${materiales.ripio} m3 de ripio</p>
+        `
+    });
+    let historial2=JSON.parse( localStorage.getItem("MaterialesC"))
+
+    historial2.forEach(materialesC => {
+        resume__text3.innerHTML += `
+        <p>CIMIENTO CICLOPEO
+        <br>${materialesC.hormigon} m3 de hormigon
+        <br>${materialesC.piedraBola} m3 de piedraBola</p>
+        `
+    });    
 }
 
-function vigueta (largo){
-    return  (largo * 2) + 0.6 
-}
+//Creo el evento a partir del boton de borrar historial => donde remueve los datos del localStorage y elimina el html creado anteriormente
 
-function elementoCeramico (largo, ancho, rendElementoCeramico){
-    return  largo * ancho * rendElementoCeramico
-}
+document.getElementById("btn-calcular3").addEventListener("click", borrarHistorial)
+let botonBorrar = document.getElementById("btn-calcular3")
 
-//funciones en construccion.
+function borrarHistorial () {
+    localStorage.removeItem ("MaterialesB")
+    localStorage.removeItem ("MaterialesC")
 
-function estructuraHormigonArmado (){ 
-    console.log("sistema en construccion.")
-}
-function revestimientos (){
-    console.log ("sistema en construccion.")
-}
-function stellFraming(){
-    console.log ("sistema en construccion.")
-}
-function PanelEPS (){
-    console.log("sistema en construccion.")
+    document.querySelector(".resume__text2").innerHTML = ""
+    document.querySelector(".resume__text3").innerHTML = ""
 }
