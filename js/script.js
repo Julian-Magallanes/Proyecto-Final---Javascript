@@ -93,11 +93,29 @@ const sistemaElegido = () => {
 const bases = () =>{
     //uso operador AND.
     let alto = document.getElementById('alto').value ;
-    alto.length === 0 && alert("Usted no incluyo el alto")
+    alto.length === 0 && Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usted no incluyo el alto',
+        showConfirmButton: false,
+        timer: 1500
+        })
     let ancho = document.getElementById('ancho').value;
-    ancho.length === 0 && alert("Usted no incluyo el ancho")
+    ancho.length === 0 && Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usted no incluyo el ancho',
+        showConfirmButton: false,
+        timer: 1500
+        })
     let largo = document.getElementById('largo').value;
-    largo.length === 0 && alert("Usted no incluyo el largo")
+    largo.length === 0 && Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usted no incluyo el largo',
+        showConfirmButton: false,
+        timer: 1500
+        })
 
     let resultado1 = cemento(alto, largo, ancho, rendCemento)
     let resultado2 = arena(alto, largo, ancho, rendArena)
@@ -115,11 +133,29 @@ const bases = () =>{
 const ciclopeo =() =>{
     //uso operador AND.
     let alto = document.getElementById('alto').value;
-    alto.length === 0 && alert("Usted no incluyo el alto")
+    alto.length === 0 && Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usted no incluyo el alto',
+        showConfirmButton: false,
+        timer: 1500
+        })
     let ancho = document.getElementById('ancho').value;
-    ancho.length === 0 && alert("Usted no incluyo el ancho")
+    ancho.length === 0 && Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usted no incluyo el ancho',
+        showConfirmButton: false,
+        timer: 1500
+        })
     let largo = document.getElementById('largo').value;
-    largo.length === 0 && alert("Usted no incluyo el largo")
+    largo.length === 0 && Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usted no incluyo el largo',
+        showConfirmButton: false,
+        timer: 1500
+        })
 
     let resultado3 = hormigon(alto,largo,ancho, rendHormigon)
     let resultado4 = piedrabola(alto,largo,ancho, rendPiedraBola)
@@ -153,7 +189,7 @@ function resumenTotal () {
 
     historial.forEach (materiales => {
         resume__text2.innerHTML += `
-        <p>BASE AISLADA
+        <p>BASE AISLADA 
         <br>${materiales.cemento} bolas de cemento
         <br>${materiales.arena} m3 de arena
         <br>${materiales.ripio} m3 de ripio</p>
@@ -162,7 +198,7 @@ function resumenTotal () {
     let historial2=JSON.parse( localStorage.getItem("MaterialesC")) 
     historial2.forEach(materialesC => {
         resume__text3.innerHTML += `
-        <p>CIMIENTO CICLOPEO
+        <p>CIMIENTO CICLOPEO 
         <br>${materialesC.hormigon} m3 de hormigon
         <br>${materialesC.piedraBola} m3 de piedraBola</p>
         `
