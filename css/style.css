@@ -271,10 +271,11 @@ h2{
     }
     .header__rrssImages {
         width: 80px;
+        padding: 0;
     }
     .header__rrssImages img {
         height: 24px;
-        padding: 0px 20px 0px 20px;
+        padding: 0;
     }
 }
 .main__container{
@@ -380,6 +381,10 @@ main h3 {
     width: 18px;
     height: 18px;
     margin-right: 8px;
+}
+.main__dimensions img{
+    height: 320px;
+    padding-left: 320px;
 }
 .main__dimensionsItem{
     font-family: 'Exo', sans-serif;
@@ -540,6 +545,10 @@ main h3 {
 }
 /* tamaño de tablet horizontal*/
 @media (max-width: 768px){
+    .main__dimensions img{
+        height: 200px;
+        padding-left: 80px;
+    }
     .main__items{
         display: flex;
         flex-wrap: wrap;
