@@ -518,11 +518,20 @@ main h3 {
 .resume__text2{
     font-size: 14px;
 }
+.resume__text2 p{
+    padding: 10px;
+}
 .resume__text3{
     font-size: 14px;
 }
 .resume__text3 p{
-    padding: 44px;
+    padding: 10px;
+}
+.resume__textPrice{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-decoration: underline;
 }
 
 @media (max-width: 992px){
