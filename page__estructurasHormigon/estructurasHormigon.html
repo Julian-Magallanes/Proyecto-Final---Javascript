@@ -95,35 +95,49 @@
         <div class="main__dimensions">
             <div class="main__dimensionsItem">
                 <label for="dimensions">CANTIDAD</label>
-                <input id="alto" type="text" name="alto">
+                <input id="cantidad" type="text" name="cantidad">
                 <h4>UNIDAD</h4>
             </div>
             <div class="main__dimensionsItem">
-                <label for="dimensions">DIAMERO Ø</label>
-                <input id="ancho" type="text" name="ancho">
-                <h4>METROS</h4>
+                <select name="DIAMERO Ø" class="select-css" id="diametroPpal">
+                    <option >SELECCIONA UNA OPCION</option>
+                    <option value="0.222">Ø 6</option>
+                    <option value="0.395">Ø 8</option>
+                    <option value="0.617">Ø 10</option>
+                    <option value="0.888">Ø 12</option>
+                    <option value="1.580">Ø 16</option>
+                    <option value="2.470">Ø 20</option>
+                </select>
+                <h4>MILIMETROS</h4>
             </div>
         </div>
         <h3>ESTRIBO</h3>
         <div class="main__dimensions">
             <div class="main__dimensionsItem">
                 <label for="dimensions">SEPARACION</label>
-                <input id="alto" type="text" name="alto">
-                <h4>UNIDAD</h4>
-            </div>
-            <div class="main__dimensionsItem">
-                <label for="dimensions">DIAMERO Ø</label>
-                <input id="ancho" type="text" name="ancho">
+                <input id="separacion" type="text" name="separacion">
                 <h4>METROS</h4>
             </div>
             <div class="main__dimensionsItem">
+                <select name="DIAMERO Ø" class="select-css" id="diametroEstribo">
+                    <option >SELECCIONA UNA OPCION</option>
+                    <option value="0.222">Ø 6</option>
+                    <option value="0.395">Ø 8</option>
+                    <option value="0.617">Ø 10</option>
+                    <option value="0.888">Ø 12</option>
+                    <option value="1.580">Ø 16</option>
+                    <option value="2.470">Ø 20</option>
+                </select>
+                <h4>MILIMETROS</h4>
+            </div>
+            <div class="main__dimensionsItem">
                 <label for="dimensions">ALTO (h)</label>
-                <input id="alto" type="text" name="alto">
+                <input id="altoH" type="text" name="altoH">
                 <h4>UNIDAD</h4>
             </div>
             <div class="main__dimensionsItem">
                 <label for="dimensions">ANCHO (e)</label>
-                <input id="ancho" type="text" name="ancho">
+                <input id="anchoE" type="text" name="anchoE">
                 <h4>METROS</h4>
             </div>
         </div>
@@ -139,14 +153,14 @@
                     <h2>RESUMEN</h2>
                     <div class="resume__text">
                     </div>
+                    <div class="resume__textPrice">
+                    </div>
                 </div>
                 <div class="resume__historial">
                     <div class="btn">
                         <input id="btn-calcular2" class="btn__submit2" type="submit" value="HISTORIAL">
                     </div>
                     <div class="resume__text2">
-                    </div>
-                    <div class="resume__text3">
                     </div>
                     <div class="btn">
                         <input id="btn-calcular3" class="btn__submit2" type="submit" value="BORRAR">
@@ -174,6 +188,6 @@
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/header.js"></script> 
-    <script src="../js/script.js"></script> 
+    <script src="../js/estructura.js"></script> 
 </body>
 </html>

@@ -533,7 +533,19 @@ main h3 {
     font-size: 20px;
     text-decoration: underline;
 }
+.select-css {
+    font-size: 20px;
+    background-color:#C5C1C0;
+    border-radius: 16px 16px 16px 16px;
+    width: 520px;
+    height: 40px;
+    font-family: 'Exo', sans-serif;
+    padding-left: 20px;
+}
 
+select option{
+font-size: 18px;
+}
 @media (max-width: 992px){
     .btn__submit{
         width: 600px;;
@@ -611,6 +623,9 @@ main h3 {
     .resume__text3 p{
         padding: 44px;
     }
+    .select-css {
+        width: 360px;
+    }
 }
 @media (max-width: 460px){
     .btn__submit{
@@ -642,7 +657,15 @@ main h3 {
         width: 150px;
         height: 24px;
     }
-
+    .select-css {
+        font-size: 14px;
+        width: 290px;
+        height: 28px;
+    }
+    
+    select option{
+    font-size: 14px;
+    }
 }
 footer {
     height: 200px;

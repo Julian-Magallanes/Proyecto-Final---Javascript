@@ -19,10 +19,9 @@ const precioPiedraBola=3
 const resume__text = document.querySelector(".resume__text");
 const resume__textPrice = document.querySelector(".resume__textPrice");
 const resume__text2 = document.querySelector(".resume__text2");
-const resume__text3 = document.querySelector(".resume__text3");
 
 
-const dolarprueba =
+const dolarApi =
     fetch('https://criptoya.com/api/dolar')
     .then(response => response.json())
     .then(dolar => { 
@@ -183,13 +182,12 @@ const basesDeObra = () =>{
     resume__text.innerHTML = `<h2>Bases Aisladas:</h2> <br> <p>Usted necesitara: <br>${ resultado1 } bolsas de cemento <br>${ resultado2 } m3 de arena <br>${ resultado3 } m3 de ripio <br>${ resultado4 } m3 de piedra bola</p>`
 
 //uso de dato de api()
-    let resultado5 = (resultado1 * precioBlue * precioCemento)+(resultado2 * precioBlue * precioArena)+(resultado3 * precioBlue * precioRipio)+(resultado4 * precioBlue * precioPiedraBola)
+    let resultado5 = Math.ceil((resultado1 * precioBlue * precioCemento)+(resultado2 * precioBlue * precioArena)+(resultado3 * precioBlue * precioRipio)+(resultado4 * precioBlue * precioPiedraBola))
 
     resume__textPrice.innerHTML = `<p>El valor estimado es: $${ resultado5 } ARS</p>`
 //Creo un array y lo guardo en el localStorage
     const valor = new MaterialesBasesDeObra(resultado1,resultado2,resultado3,resultado4)
     materialesB.push(valor)
-    console.log(materialesB)
     localStorage.setItem('MaterialesB', JSON.stringify(materialesB))
 }
 
@@ -208,13 +206,12 @@ const basesDeElaborado = () =>{
     resume__text.innerHTML = `<h2>Bases Aisladas:</h2> <br> <p>Usted necesitara: <br>${ resultado1 } m3 de hormigon elaborado <br>${ resultado2 } m3 de piedra bola</p>`
     
 //uso de dato de api()
-    let resultado3 = (resultado1 * precioBlue * precioHormigon)+(resultado2 * precioBlue * precioPiedraBola)
+    let resultado3 = Math.ceil((resultado1 * precioBlue * precioHormigon)+(resultado2 * precioBlue * precioPiedraBola))
 
     resume__textPrice.innerHTML = `<p>El valor estimado es: $${ resultado3 } ARS</p>`
 //Creo un array y lo guardo en el localStorage
     const valor = new MaterialesBasesElaborado(resultado1,resultado2)
     materialesBE.push(valor)
-    console.log(materialesBE)
     localStorage.setItem('MaterialesBE', JSON.stringify(materialesBE))
 }
 const ciclopeoDeObra =() =>{
@@ -233,13 +230,12 @@ const ciclopeoDeObra =() =>{
     resume__text.innerHTML = `<h2>Cimiento Ciclopeo:</h2> <br> <p>Usted necesitara: <br>${ resultado1 } bolsas de cemento <br>${ resultado2 } m3 de arena <br>${ resultado3 } m3 de ripio <br>${ resultado4 } m3 de piedra bola </p>`
 
 //uso de dato de api()
-    let resultado5 = (resultado1 * precioBlue * precioCemento)+(resultado2 * precioBlue * precioArena)+(resultado3 * precioBlue * precioRipio)+(resultado4 * precioBlue * precioPiedraBola)
+    let resultado5 = Math.ceil((resultado1 * precioBlue * precioCemento)+(resultado2 * precioBlue * precioArena)+(resultado3 * precioBlue * precioRipio)+(resultado4 * precioBlue * precioPiedraBola))
 
     resume__textPrice.innerHTML = `<p>El valor estimado es: $${ resultado5 } ARS</p>`
 //Creo un array y lo guardo en el localStorage
     const valor = new MaterialesCimientoDeObra(resultado1,resultado2,resultado3,resultado4)
     materialesC.push(valor)
-    console.log(materialesC)
     localStorage.setItem('MaterialesC', JSON.stringify(materialesC))
 }
 
@@ -257,13 +253,12 @@ const ciclopeoElaborado =() =>{
     resume__text.innerHTML = `<h2>Cimiento Ciclopeo:</h2> <br> <p>Usted necesitara: <br>${ resultado1 } m3 de hormigon elaborado <br>${ resultado2 } m3 de piedra bola </p>`
     
 //uso de dato de api()
-    let resultado3 = (resultado1 * precioBlue * precioHormigon)+(resultado2 * precioBlue * precioPiedraBola)
+    let resultado3 = Math.ceil((resultado1 * precioBlue * precioHormigon)+(resultado2 * precioBlue * precioPiedraBola))
 
     resume__textPrice.innerHTML = `<p>El valor estimado es: $${ resultado3 } ARS</p>`
 //Creo un array y lo guardo en el localStorage
     const valor = new MaterialesCimientoElaborado(resultado1,resultado2)
     materialesCE.push(valor)
-    console.log(materialesCE)
     localStorage.setItem('MaterialesCE', JSON.stringify(materialesCE))
 }
 
@@ -301,7 +296,7 @@ function resumenTotal () {
     });
     let historial3=JSON.parse( localStorage.getItem("MaterialesC")) 
     historial3.forEach(materialesC => {
-        resume__text3.innerHTML += `
+        resume__text2.innerHTML += `
         <p>CIMIENTO CICLOPEO 
         <br>${materialesC.cemento} bolsas de cemento
         <br>${materialesC.arena} m3 de arena
@@ -311,7 +306,7 @@ function resumenTotal () {
     });
     let historial4=JSON.parse( localStorage.getItem("MaterialesCE"))
     historial4.forEach (materialesCE => {
-        resume__text3.innerHTML += `
+        resume__text2.innerHTML += `
         <p>CIMIENTO CICLOPEO 
         <br>${materialesCE.hormigon} m3 de hormigon
         <br>${materialesCE.piedraBola} m3 de piedraBola</p
@@ -330,7 +325,16 @@ function borrarHistorial () {
     localStorage.removeItem ("MaterialesCE")
 
     document.querySelector(".resume__text2").innerHTML = ""
-    document.querySelector(".resume__text3").innerHTML = ""
+
+    materialesB=[]
+    materialesBE=[]
+    materialesC=[]
+    materialesCE=[]
+
+    localStorage.setItem('MaterialesB', JSON.stringify(materialesB))
+    localStorage.setItem('MaterialesBE', JSON.stringify(materialesBE))
+    localStorage.setItem('MaterialesC', JSON.stringify(materialesC))
+    localStorage.setItem('MaterialesCE', JSON.stringify(materialesCE))
 }
 
 

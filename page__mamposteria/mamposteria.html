@@ -95,11 +95,6 @@
                 <h4>METROS</h4>
             </div>
             <div class="main__dimensionsItem">
-                <label for="dimensions">ANCHO</label>
-                <input id="ancho" type="text" name="ancho">
-                <h4>METROS</h4>
-            </div>
-            <div class="main__dimensionsItem">
                 <label for="dimensions">LARGO</label>
                 <input id="largo" type="text" name="largo">
                 <h4>METROS</h4>
@@ -110,24 +105,24 @@
             <img src="../imagenes/elementos_constructivos/mamposteria/muro con ventana.png" alt="muro con abertura">
             <div class="main__dimensionsItem">
                 <label for="dimensions">CANTIDAD</label>
-                <input id="alto" type="text" name="alto">
+                <input id="cantidadAbertura" type="text" name="alto">
                 <h4>UNIDAD</h4>
             </div>
             <div class="main__dimensionsItem">
                 <label for="dimensions">ALTO</label>
-                <input id="ancho" type="text" name="ancho">
+                <input id="altoAbertura" type="text" name="ancho">
                 <h4>METROS</h4>
             </div>
             <div class="main__dimensionsItem">
                 <label for="dimensions">LARGO</label>
-                <input id="largo" type="text" name="largo">
+                <input id="largoAbertura" type="text" name="largo">
                 <h4>METROS</h4>
             </div>
         </div>
         <div class="main__container">
             <div class="btn">
                 <input id="btn-calcular" class="btn__submit" type="submit" value="CALCULAR">
-            </div>
+            </div> 
         </div>
         </form>
         <div class="main__container">
@@ -135,6 +130,8 @@
                 <div class="resume__resultado">
                     <h2>RESUMEN</h2>
                     <div class="resume__text">
+                    </div>
+                    <div class="resume__textPrice">
                     </div>
                 </div>
                 <div class="resume__historial">
@@ -171,6 +168,6 @@
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/header.js"></script> 
-    <script src="../js/script.js"></script> 
+    <script src="../js/mamposteria.js"></script> 
 </body>
 </html>
